@@ -41,6 +41,8 @@ var allWords = [
 var wins = 0;
 var losses = 0;
 var guessesLeft = 10;
+var lettersGuessed = [];
+
 
 var startText = document.getElementById("start-text");
 var winsText = document.getElementById("wins-text");
@@ -50,13 +52,16 @@ var guessesLeftText = document.getElementById("guessesleft-text");
 var lettersGuessedText = document.getElementById("lettersguessed-text");
 
 // computer picks random word from array to start
-var randomWord = allWords[Math.floor(Math.random() * allWords.length)];
+var currentWord = allWords[Math.floor(Math.random() * allWords.length)];
+
+// variable to keep track of how many letters are left to be guessed. Will be reduced by 1 with each correct letter
+var remainingLetters = currentWord.length;
 
 // blank array to start with underscores corresponding to # of letters in randomWord
 var answerArray = [];
 
 // for loop adds underscore to answerArray for each letter in randomWord
-for (var i = 0; i < randomWord.length; i++) {
+for (var i = 0; i < currentWord.length; i++) {
     answerArray[i] = "_";
 }
 
@@ -65,12 +70,42 @@ currentWordText.textContent = "Current Word: " + answerArray.join(" ");
 
 
 // user hits any key to start
-document.onkeyup = function(event) {
+document.onkeyup = function (event) {
+
+    console.log(remainingLetters);
 
     // pressed key is set to lower case and stored as a variable
     var userGuess = event.key.toLowerCase();
 
-    // variable to keep track of how many letters are left to be guessed. Will be reduced by 1 with each correct letter
-    var remainingLetters = randomWord.length;
+    // variable to check if guessed letter is in current random word
+    var isInWord = currentWord.includes(userGuess);
 
-}
+    if (isInWord) {
+        for (var j = 0; j < currentWord.length; j++) {
+            if (currentWord[j] === userGuess) {
+                answerArray[j] = userGuess;
+                remainingLetters--;
+                currentWordText.textContent = "Current Word: " + answerArray.join(" ");
+            }
+        }
+    }
+
+    else {
+        guessesLeft--;
+        lettersGuessed.push(userGuess);
+        guessesLeftText.textContent = "Number of Guesses Remaining: " + guessesLeft;
+        lettersGuessedText.textContent = "Letters Already Guessed: " + lettersGuessed.join(", ");
+    }
+
+    if (remainingLetters === 0) {
+        alert("you win");
+        wins++;
+        guessesLeft = 10; 
+        lettersGuessed = [];
+        currentWord = allWords[Math.floor(Math.random() * allWords.length)];
+        winsText.textContent = "Wins: " + wins;
+    }
+
+};
+
+
