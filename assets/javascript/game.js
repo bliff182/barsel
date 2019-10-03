@@ -38,6 +38,10 @@ var allWords = [
     "ten"
 ];
 
+// array to store all possible letter choices 
+var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var lettersPicked = [];
+
 var wins = 0;
 var losses = 0;
 var guessesLeft = 10;
@@ -65,77 +69,84 @@ for (var i = 0; i < currentWord.length; i++) {
     answerArray[i] = "_";
 }
 
-// displays current word as underscores; .join() method replaces comma separator with space
-currentWordText.textContent = "Current Word: " + answerArray.join(" ");
 
 
-// user hits any key to start
-document.onkeyup = function (event) {
+//user clicks button to start
+function startGame () {
 
-    // pressed key is set to lower case and stored as a variable
-    var userGuess = event.key.toLowerCase();
+    // Starting text changes to "Start Guessing"
+    startText.textContent = "Start Guessing!"
 
-    // variable to check if guessed letter is in current random word
-    var isInWord = currentWord.includes(userGuess);
+    // displays current word as underscores; .join() method replaces comma separator with space
+    currentWordText.textContent = "Current Word: " + answerArray.join(" ");
 
-    // runs this code if userGuess is in the current word
-    if (isInWord) {
-        // loops through word to look for where guess is in the word
-        for (var j = 0; j < currentWord.length; j++) {
-            if (currentWord[j] === userGuess) {
-                // replaces underscore in answerArray with guessed letter
-                answerArray[j] = userGuess;
-                remainingLetters--;
-                // updates html for answerArray
-                currentWordText.textContent = "Current Word: " + answerArray.join(" ");
+    // user hits any key to start
+    document.onkeyup = function (event) {
+
+        // pressed key is set to lower case and stored as a variable
+        var userGuess = event.key.toLowerCase();
+
+        // variable to check if guessed letter is in current random word
+        var isInWord = currentWord.includes(userGuess);
+
+        // runs this code if userGuess is in the current word
+        if (isInWord) {
+            // loops through word to look for where guess is in the word
+            for (var j = 0; j < currentWord.length; j++) {
+                if (currentWord[j] === userGuess) {
+                    // replaces underscore in answerArray with guessed letter
+                    answerArray[j] = userGuess;
+                    remainingLetters--;
+                    // updates html for answerArray
+                    currentWordText.textContent = "Current Word: " + answerArray.join(" ");
+                }
             }
         }
-    }
 
-    else {
-        guessesLeft--;
-        // userGuess is added to lettersGuessed array 
-        lettersGuessed.push(userGuess);
-        // updates html for these elements 
-        guessesLeftText.textContent = "Number of Guesses Remaining: " + guessesLeft;
-        lettersGuessedText.textContent = "Letters Already Guessed: " + lettersGuessed.join(", ");
-    }
-
-    // code to run if user guesses all letters in the word 
-    if (remainingLetters === 0) {
-        alert("you win");
-        wins++;
-        // these values reset 
-        guessesLeft = 10;
-        lettersGuessed = [];
-        answerArray = [];
-        currentWord = allWords[Math.floor(Math.random() * allWords.length)];
-        // wins html gets updated 
-        winsText.textContent = "Wins: " + wins;
-        remainingLetters = currentWord.length;
-        for (var i = 0; i < currentWord.length; i++) {
-            answerArray[i] = "_";
+        else {
+            guessesLeft--;
+            // userGuess is added to lettersGuessed array 
+            lettersGuessed.push(userGuess);
+            // updates html for these elements 
+            guessesLeftText.textContent = "Number of Guesses Remaining: " + guessesLeft;
+            lettersGuessedText.textContent = "Letters Already Guessed: " + lettersGuessed.join(", ");
         }
-        currentWordText.textContent = "Current Word: " + answerArray.join(" ");
-    }
 
-    else if (guessesLeft === 0) {
-        alert("you lose");
-        losses++;
-        //these values reset
-        guessesLeft= 10;
-        lettersGuessed = [];
-        answerArray = [];
-        currentWord = allWords[Math.floor(Math.random() * allWords.length)];
-        // losses html gets updated
-        lossesText.textContent = "Losses: " + losses;
-        remainingLetters = currentWord.length;
-        for (var i = 0; i < currentWord.length; i++) {
-            answerArray[i] = "_";
+        // code to run if user guesses all letters in the word 
+        if (remainingLetters === 0) {
+            alert("you win");
+            wins++;
+            // these values reset 
+            guessesLeft = 10;
+            lettersGuessed = [];
+            answerArray = [];
+            currentWord = allWords[Math.floor(Math.random() * allWords.length)];
+            // wins html gets updated 
+            winsText.textContent = "Wins: " + wins;
+            remainingLetters = currentWord.length;
+            for (var i = 0; i < currentWord.length; i++) {
+                answerArray[i] = "_";
+            }
+            currentWordText.textContent = "Current Word: " + answerArray.join(" ");
         }
-        currentWordText.textContent = "Current Word: " + answerArray.join(" ");
+
+        else if (guessesLeft === 0) {
+            alert("you lose");
+            losses++;
+            //these values reset
+            guessesLeft = 10;
+            lettersGuessed = [];
+            answerArray = [];
+            currentWord = allWords[Math.floor(Math.random() * allWords.length)];
+            // losses html gets updated
+            lossesText.textContent = "Losses: " + losses;
+            remainingLetters = currentWord.length;
+            for (var i = 0; i < currentWord.length; i++) {
+                answerArray[i] = "_";
+            }
+            currentWordText.textContent = "Current Word: " + answerArray.join(" ");
+        }
+
     }
 
 };
-
-
