@@ -72,8 +72,6 @@ currentWordText.textContent = "Current Word: " + answerArray.join(" ");
 // user hits any key to start
 document.onkeyup = function (event) {
 
-    console.log(remainingLetters);
-
     // pressed key is set to lower case and stored as a variable
     var userGuess = event.key.toLowerCase();
 
@@ -114,6 +112,23 @@ document.onkeyup = function (event) {
         currentWord = allWords[Math.floor(Math.random() * allWords.length)];
         // wins html gets updated 
         winsText.textContent = "Wins: " + wins;
+        remainingLetters = currentWord.length;
+        for (var i = 0; i < currentWord.length; i++) {
+            answerArray[i] = "_";
+        }
+        currentWordText.textContent = "Current Word: " + answerArray.join(" ");
+    }
+
+    else if (guessesLeft === 0) {
+        alert("you lose");
+        losses++;
+        //these values reset
+        guessesLeft= 10;
+        lettersGuessed = [];
+        answerArray = [];
+        currentWord = allWords[Math.floor(Math.random() * allWords.length)];
+        // losses html gets updated
+        lossesText.textContent = "Losses: " + losses;
         remainingLetters = currentWord.length;
         for (var i = 0; i < currentWord.length; i++) {
             answerArray[i] = "_";
