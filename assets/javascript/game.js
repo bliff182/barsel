@@ -80,11 +80,15 @@ document.onkeyup = function (event) {
     // variable to check if guessed letter is in current random word
     var isInWord = currentWord.includes(userGuess);
 
+    // runs this code if userGuess is in the current word
     if (isInWord) {
+        // loops through word to look for where guess is in the word
         for (var j = 0; j < currentWord.length; j++) {
             if (currentWord[j] === userGuess) {
+                // replaces underscore in answerArray with guessed letter
                 answerArray[j] = userGuess;
                 remainingLetters--;
+                // updates html for answerArray
                 currentWordText.textContent = "Current Word: " + answerArray.join(" ");
             }
         }
@@ -92,18 +96,29 @@ document.onkeyup = function (event) {
 
     else {
         guessesLeft--;
+        // userGuess is added to lettersGuessed array 
         lettersGuessed.push(userGuess);
+        // updates html for these elements 
         guessesLeftText.textContent = "Number of Guesses Remaining: " + guessesLeft;
         lettersGuessedText.textContent = "Letters Already Guessed: " + lettersGuessed.join(", ");
     }
 
+    // code to run if user guesses all letters in the word 
     if (remainingLetters === 0) {
         alert("you win");
         wins++;
-        guessesLeft = 10; 
+        // these values reset 
+        guessesLeft = 10;
         lettersGuessed = [];
+        answerArray = [];
         currentWord = allWords[Math.floor(Math.random() * allWords.length)];
+        // wins html gets updated 
         winsText.textContent = "Wins: " + wins;
+        remainingLetters = currentWord.length;
+        for (var i = 0; i < currentWord.length; i++) {
+            answerArray[i] = "_";
+        }
+        currentWordText.textContent = "Current Word: " + answerArray.join(" ");
     }
 
 };
