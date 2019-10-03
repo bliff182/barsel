@@ -44,9 +44,6 @@ var lettersPicked = [];
 
 var wins = 0;
 var losses = 0;
-var guessesLeft = 10;
-var lettersGuessed = [];
-
 
 var startText = document.getElementById("start-text");
 var winsText = document.getElementById("wins-text");
@@ -55,30 +52,36 @@ var currentWordText = document.getElementById("currentword-text");
 var guessesLeftText = document.getElementById("guessesleft-text");
 var lettersGuessedText = document.getElementById("lettersguessed-text");
 
-// computer picks random word from array to start
-var currentWord = allWords[Math.floor(Math.random() * allWords.length)];
-
-// variable to keep track of how many letters are left to be guessed. Will be reduced by 1 with each correct letter
-var remainingLetters = currentWord.length;
-
-// blank array to start with underscores corresponding to # of letters in randomWord
-var answerArray = [];
-
-// for loop adds underscore to answerArray for each letter in randomWord
-for (var i = 0; i < currentWord.length; i++) {
-    answerArray[i] = "_";
-}
-
-
 
 //user clicks button to start
-function startGame () {
+function startGame() {
+
+    // computer picks random word from array to start
+    var currentWord = allWords[Math.floor(Math.random() * allWords.length)];
+
+    // variable to keep track of how many letters are left to be guessed. Will be reduced by 1 with each correct letter
+    var remainingLetters = currentWord.length;
+
+    var guessesLeft = 10;
+    var lettersGuessed = [];
+
+    // blank array to start with underscores corresponding to # of letters in randomWord
+    var answerArray = [];
+
+    // for loop adds underscore to answerArray for each letter in randomWord
+    for (var i = 0; i < currentWord.length; i++) {
+        answerArray[i] = "_";
+    }
 
     // Starting text changes to "Start Guessing"
-    startText.textContent = "Start Guessing!"
+    // startText.textContent = "Start Guessing!"
 
     // displays current word as underscores; .join() method replaces comma separator with space
     currentWordText.textContent = "Current Word: " + answerArray.join(" ");
+
+    guessesLeftText.textContent = "Number of Guesses Remaining: " + guessesLeft;
+    lettersGuessedText.textContent = "Letters Already Guessed: " + lettersGuessed.join(", ");
+
 
     // user hits any key to start
     document.onkeyup = function (event) {
@@ -121,13 +124,16 @@ function startGame () {
             lettersGuessed = [];
             answerArray = [];
             currentWord = allWords[Math.floor(Math.random() * allWords.length)];
-            // wins html gets updated 
+            // html gets updated 
             winsText.textContent = "Wins: " + wins;
             remainingLetters = currentWord.length;
             for (var i = 0; i < currentWord.length; i++) {
                 answerArray[i] = "_";
             }
             currentWordText.textContent = "Current Word: " + answerArray.join(" ");
+            lettersGuessedText.textContent = "Letters Already Guessed: " + lettersGuessed.join(", ");
+            guessesLeftText.textContent = "Number of Guesses Remaining: " + guessesLeft;
+
         }
 
         else if (guessesLeft === 0) {
@@ -145,6 +151,8 @@ function startGame () {
                 answerArray[i] = "_";
             }
             currentWordText.textContent = "Current Word: " + answerArray.join(" ");
+            lettersGuessedText.textContent = "Letters Already Guessed: " + lettersGuessed.join(", ");
+            guessesLeftText.textContent = "Number of Guesses Remaining: " + guessesLeft;
         }
 
     }
