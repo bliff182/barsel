@@ -47,8 +47,8 @@ function startGame() {
     // displays current word as underscores; .join() method replaces comma separator with space
     currentWordText.textContent = answerArray.join(" ");
 
-    guessesLeftText.textContent = "Number of Guesses Remaining: " + guessesLeft;
-    lettersGuessedText.textContent = "Letters Already Guessed: " + lettersGuessed.join(", ");
+    guessesLeftText.textContent = "Guesses Remaining: " + guessesLeft;
+    lettersGuessedText.textContent = "Already Guessed: " + lettersGuessed.join(", ");
 
     console.log(currentWord);
 
@@ -76,7 +76,7 @@ function startGame() {
                     if (currentWord[j] == userGuess) {
                         answerArray[j] = userGuess;
                         remainingLetters--;
-                        currentWordText.textContent = "Current Word: " + answerArray.join(" ");
+                        currentWordText.textContent = answerArray.join(" ");
                     }
                 }
             }
@@ -84,8 +84,8 @@ function startGame() {
             else {
                 guessesLeft--;
                 lettersGuessed.push(userGuess);
-                guessesLeftText.textContent = "Number of Guesses Remaining: " + guessesLeft;
-                lettersGuessedText.textContent = "Letters Already Guessed: " + lettersGuessed.join(", ");
+                guessesLeftText.textContent = "Guesses Remaining: " + guessesLeft;
+                lettersGuessedText.textContent = "Already Guessed: " + lettersGuessed.join(", ");
             }
 
 

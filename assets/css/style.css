@@ -30,9 +30,9 @@ body {
 
 #second-header {
   color: black;
-  font-size: 40px;
+  font-size: 50px;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 60px;
   margin-bottom: 60px
 }
 
@@ -42,12 +42,23 @@ body {
   margin: auto;
   overflow: auto;
   border: 1px solid white;
-  margin-top: 175px;
+  margin-top: 160px;
+}
+
+.maingame-text {
+  text-align: center;
+  padding: 20px;
+}
+
+.answer {
+  font-size: 30px;
 }
 
 #start-text {
-  font-size: 50px;
-  text-align: center;
+  font-size: 40px;
+  /* text-align: center; */
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 button {
@@ -55,6 +66,8 @@ button {
 }
 
 .content-section {
+  font-size: 26px;
+  text-align: center;
   width: 420px;
   padding: 20px;
   border: 1px solid white;
@@ -63,5 +76,9 @@ button {
 
 #image, #gameplay {
   float: left;
+}
+
+#gameplay {
+  margin-left: 20px;
 }
 
