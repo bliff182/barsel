@@ -9,43 +9,40 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+
     <title>Hangman</title>
 </head>
 
 <body>
+    <div class="bg"></div>
+    <header>
+        <h1 id="main-header">Batman Hangman</h1>
+        <h2 id="second-header">Can You Guess the Batman Villains?</h2>
+    </header>
 
-    <!-- <div id="batman">
-        <div class="inner-y">
-            <div class="inner-b">
-                <div class="cut-lr"></div>
-                <div class="cut-rr"></div>
-                <div class="cut-bll"></div>
-                <div class="cut-brr"></div>
-                <div class="cut-blll"></div>
-                <div class="cut-bllr"></div>
-                <div class="cut-brll"></div>
-                <div class="cut-brlr"></div>
-                <div class="cut-hd"></div>
-                <div class="drw-hd-m"></div>
-                <div class="drw-hd-lt"></div>
-                <div class="drw-hd-rt"></div>
+    <div class="wrapper">
+
+            <p id="start-text">Click <button onclick="startGame()">Here</button> to Guess a Villain!</p>
+
+        <section class="content-section" id="image">.content-section #image placeholder</section>
+
+        <section class="content-section" id="gameplay">
+
+            <div id="game">
+
+                <!-- <p id="start-text">Click <button onclick="startGame()">Here</button> to Guess a Villain!</p> -->
+                <p>Current Word: </p>
+                <p id="currentword-text"></p>
+                <p id="wins-text">Wins: </p>
+                <p id="losses-text">Losses: </p>
+                <p id="guessesleft-text">Number of Guesses Remaining: </p>
+                <p id="lettersguessed-text">Letters Already Guessed: </p>
+                <p id="win-lose-text"></p>
+
             </div>
-        </div>
-    </div> -->
 
-    <h1>Hangman</h1>
-
-    <div id="game">
-
-        <p id="start-text">Click <button onclick="startGame()">Here</button> to Get a Word!</p>
-        <br>
-        <p id="win-lose-text"></p>
-        <br>
-        <p id="wins-text">Wins: </p>
-        <p id="losses-text">Losses: </p>
-        <p id="currentword-text">Current Word: </p>
-        <p id="guessesleft-text">Number of Guesses Remaining: </p>
-        <p id="lettersguessed-text">Letters Already Guessed: </p>
+        </section>
 
     </div>
 

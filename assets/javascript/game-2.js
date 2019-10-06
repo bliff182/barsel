@@ -45,7 +45,7 @@ function startGame() {
 
     winLoseText.textContent = "";
     // displays current word as underscores; .join() method replaces comma separator with space
-    currentWordText.textContent = "Current Word: " + answerArray.join(" ");
+    currentWordText.textContent = answerArray.join(" ");
 
     guessesLeftText.textContent = "Number of Guesses Remaining: " + guessesLeft;
     lettersGuessedText.textContent = "Letters Already Guessed: " + lettersGuessed.join(", ");
