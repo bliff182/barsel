@@ -41,7 +41,7 @@ body {
   padding: 20px;
   margin: auto;
   overflow: auto;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   margin-top: 160px;
 }
 
@@ -70,7 +70,7 @@ button {
   text-align: center;
   width: 420px;
   padding: 20px;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   margin: auto;
 }
 

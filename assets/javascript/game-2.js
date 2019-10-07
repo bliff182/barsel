@@ -15,7 +15,11 @@ var lettersGuessedText = document.getElementById("lettersguessed-text");
 function startGame() {
 
     // array of all possible words to guess 
-    var allWords = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty"];
+    var allWords = ["batman", "robin", "joker", "nightwing", "batgirl", "oracle", "gordon", "hawkfire", "alfred", 
+    "catwoman", "twoface", "azrael", "riddler", "penguin", "bane", "scarecrow", "clayface", "hush", "cluemaster", 
+    "deadshot", "slipknot", "deathstroke", "firefly", "kgbeast", "grundy", "ventriloquist", "zsasz", "enigma", "shiva", 
+    "copperhead", "electrocutioner", "phantasm", "manbat", "falcone", "maroni", "anarky", "bullock", "flass", "enchantress", 
+    "huntress", "katana"];
 
     // array to store all possible letter choices 
     var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -50,7 +54,7 @@ function startGame() {
     guessesLeftText.textContent = "Guesses Remaining: " + guessesLeft;
     lettersGuessedText.textContent = "Already Guessed: " + lettersGuessed.join(", ");
 
-    console.log(currentWord);
+    
 
     // USER STARTS GUESSING
     document.onkeyup = function (event) {
