@@ -15,11 +15,11 @@ var lettersGuessedText = document.getElementById("lettersguessed-text");
 function startGame() {
 
     // array of all possible words to guess 
-    var allWords = ["batman", "robin", "joker", "nightwing", "batgirl", "oracle", "gordon", "hawkfire", "alfred", 
+    var allWords = ["batman"/* , "robin", "joker", "nightwing", "batgirl", "oracle", "gordon", "hawkfire", "alfred", 
     "catwoman", "twoface", "azrael", "riddler", "penguin", "bane", "scarecrow", "clayface", "hush", "cluemaster", 
     "deadshot", "slipknot", "deathstroke", "firefly", "kgbeast", "grundy", "ventriloquist", "zsasz", "enigma", "shiva", 
     "copperhead", "electrocutioner", "phantasm", "manbat", "falcone", "maroni", "anarky", "bullock", "flass", "enchantress", 
-    "huntress", "katana"];
+    "huntress", "katana" */];
 
     // array to store all possible letter choices 
     var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -103,7 +103,7 @@ function startGame() {
 
             // image of character is revealed
             /* if (currentWord == "batman") {
-                document.getElementById("image").innerHTML()
+                var characterImage = document.getElementById("character-image").src="../images/characters/Batman_Vol_3_61_Textless.jpg";
             } */
         }
 
