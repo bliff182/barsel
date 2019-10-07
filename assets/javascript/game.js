@@ -47,7 +47,7 @@ function startGame() {
         }
     }
 
-    winLoseText.textContent = "";
+    winLoseText.textContent = "Current Word:";
     // displays current word as underscores; .join() method replaces comma separator with space
     currentWordText.textContent = answerArray.join(" ");
 
@@ -110,7 +110,7 @@ function startGame() {
 // USER LOSES
         else if (guessesLeft == 0) {
             losses++;
-            winLoseText.textContent = "You Lose :( Click the button to play again.";
+            winLoseText.textContent = "You Lose :( Click the button to play again";
             lossesText.textContent = "Losses: " + losses;
 
         }
