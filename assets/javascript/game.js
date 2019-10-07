@@ -24,7 +24,7 @@ function startGame() {
     // array to store all possible letter choices 
     var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-    var guessesLeft = 8;
+    var guessesLeft = 7;
     var lettersGuessed = [];
 
     // blank array to start with underscores corresponding to # of letters in randomWord
@@ -112,7 +112,6 @@ function startGame() {
             losses++;
             winLoseText.textContent = "You Lose :( Click the button to play again";
             lossesText.textContent = "Losses: " + losses;
-
         }
     };
 };
