@@ -100,6 +100,11 @@ function startGame() {
             wins++;
             winLoseText.textContent = "You Win! Click the button to play again!";
             winsText.textContent = "Wins: " + wins;
+
+            // image of character is revealed
+            /* if (currentWord == "batman") {
+                document.getElementById("image").innerHTML()
+            } */
         }
 
 // USER LOSES
