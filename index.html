@@ -1,56 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
 
     <title>Hangman</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="bg"></div>
     <header>
-        <h1 id="main-header">Batman Hangman</h1>
-        <h2 id="second-header">Can You Guess the Batman Characters?</h2>
+      <h1 id="main-header">Batman Hangman</h1>
+      <h2 id="second-header">Can You Guess the Batman Characters?</h2>
     </header>
 
     <div class="wrapper">
+      <div class="maingame-text">
+        <p id="start-text">
+          Click <button onclick="startGame()">Here</button> to Guess a
+          Character!
+        </p>
+        <p class="answer" id="win-lose-text">Current Word:</p>
+        <p class="answer" id="currentword-text"></p>
+      </div>
 
-        <div class="maingame-text">
-            <p id="start-text">Click <button onclick="startGame()">Here</button> to Guess a Character!</p>
-            <p class="answer" id="win-lose-text">Current Word:</p>
-            <p class="answer" id="currentword-text"></p>
+      <section class="content-section" id="image">
+        <img
+          src="assets/images/batsymbol.png"
+          alt="Bat Symbol"
+          id="character-image"
+        />
+      </section>
+
+      <section class="content-section" id="gameplay">
+        <div id="game">
+          <p id="wins-text">Wins:</p>
+          <p id="losses-text">Losses:</p>
+          <p id="guessesleft-text">Number of Guesses Remaining:</p>
+          <p id="lettersguessed-text">Letters Already Guessed:</p>
+          <!-- <p id="win-lose-text"></p> -->
         </div>
-
-        <section class="content-section" id="image">
-            <img src="assets/images/batsymbol.png" alt="Bat Symbol" id="character-image">
-        </section>
-
-        <section class="content-section" id="gameplay">
-
-            <div id="game">
-
-                <p id="wins-text">Wins: </p>
-                <p id="losses-text">Losses: </p>
-                <p id="guessesleft-text">Number of Guesses Remaining: </p>
-                <p id="lettersguessed-text">Letters Already Guessed: </p>
-                <!-- <p id="win-lose-text"></p> -->
-
-            </div>
-
-        </section>
-
+      </section>
     </div>
 
     <script src="assets/javascript/game.js"></script>
-
-</body>
-
+  </body>
 </html>
