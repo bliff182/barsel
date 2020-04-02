@@ -6,6 +6,8 @@ This page is an exercise in dynamically updating HTML and CSS, powered by Vanill
 
 This is a front-end application and exercise in dynamically updating HTML and CSS. It is powered solely by Vanilla JavaScript.
 
+This is focused on Batman because Batman rules.
+
 ![Homepage](/assets/images/new-screenshot.png)
 
 ### Tools Used
@@ -14,3 +16,5 @@ This is a front-end application and exercise in dynamically updating HTML and CS
 - CSS
 - JavaScript
 - Google Fonts
+
+**Created by Mike Bither**
